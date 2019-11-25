@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1574691674 source:g:\tutu\homeworkoop_nr2_12\tema12\main.cpp
+	"Matrice.h"
+
+1574691698 g:\tutu\homeworkoop_nr2_12\tema12\include\matrice.h
+	"Universal.h"
+
+1574691013 source:g:\tutu\homeworkoop_nr2_12\tema12\src\matrice.cpp
+	"Matrice.h"
+
+1574691166 source:g:\tutu\homeworkoop_nr2_12\tema12\src\graf.cpp
+	"Graf.h"
+
+1574691674 g:\tutu\homeworkoop_nr2_12\tema12\include\graf.h
+	"Universal.h"
+
+1574691609 g:\tutu\homeworkoop_nr2_12\tema12\include\universal.h
+	<iostream>
+	<bits/stdc++.h>
+
+1574691112 source:g:\tutu\homeworkoop_nr2_12\tema12\src\vector.cpp
+	"Vector.h"
+
+1574691674 g:\tutu\homeworkoop_nr2_12\tema12\include\vector.h
+	"Universal.h"
+
+1574691412 source:g:\tutu\homeworkoop_nr2_12\tema12\src\graf_neorientat.cpp
+	"Graf_Neorientat.h"
+
+1574691722 g:\tutu\homeworkoop_nr2_12\tema12\include\graf_neorientat.h
+	"Graf.h"
+	"Lista.h"
+
+1574691748 g:\tutu\homeworkoop_nr2_12\tema12\include\lista.h
+	"Universal.h"
+	"Vector.h"
+
