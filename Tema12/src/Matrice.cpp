@@ -1,6 +1,6 @@
 #include "Matrice.h"
 
-Matrice::Matrice(int **a)
+Matrice::Matrice(int **a, unsigned int dim)
 {
     //ctor
 }
@@ -17,7 +17,14 @@ Matrice::Matrice(const Matrice& other)
 
 Matrice& Matrice::operator=(const Matrice& rhs)
 {
-    if (this == &rhs) return *this; // handle self assignment
-    //assignment operator
+    if (this == &rhs) return *this;
     return *this;
+}
+
+int& operator() (int row, int column){
+
+}
+
+const int& operator() (int row, int column) const {
+
 }
