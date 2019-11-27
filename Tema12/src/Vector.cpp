@@ -1,23 +1,147 @@
 #include "Vector.h"
+Vector::Vector() : vSize(0) {}
 
-Vector::Vector(int *v, int dim)
+Vector::Vector(unsigned int dim, int value) : vSize(dim)
 {
-    //ctor
+    allocateVecData(vData, vSize);
+    v_init(value);
+}
+
+Vector::Vector(int *v, unsigned int dim) : vSize(dim)
+{
+
+    allocateVecData(vData, vSize);
+    for(unsigned int index = 0; index < vSize; index++)
+        vData[index] = v[index];
+
 }
 
 Vector::~Vector()
 {
-    //dtor
+    cleanUpVector(vData, vSize);
 }
 
 Vector::Vector(const Vector& other)
 {
-    //copy ctor
+    if(vData == nullptr) {
+        allocateVecData(vData, other.vSize);
+    } else if(vSize != other.vSize) {
+        delete []vData;
+        allocateVecData(vData, other.vSize);
+    }
+
+    copyVector(vData, other.vData, other.vSize);
+    vSize = other.vSize;
 }
 
 Vector& Vector::operator=(const Vector& rhs)
 {
-    if (this == &rhs) return *this; // handle self assignment
-    //assignment operator
+    if (this == &rhs)
+        return *this;
+
+    if  (vSize != rhs.vSize) {
+        throw invalid_argument("Error : vectors sizes are not the same ");
+        return *this;
+    }
+    copyVector(vData, rhs.vData, vSize);
     return *this;
+}
+
+int& Vector::operator[] (unsigned int index)
+{
+    if(index < 0 || index >= vSize)
+        throw out_of_range("Index out of bounds");
+    return vData[index];
+}
+
+int Vector::operator[] (unsigned int index) const
+{
+    if(index < 0 || index >= vSize)
+        throw out_of_range("Index out of bounds");
+    return vData[index];
+}
+
+void Vector::pushBack(const int& item)
+{
+    if(vSize == 0) {
+        allocateVecData(vData, 1);
+        vSize = 1;
+        vData[0] = item;
+    }
+    int *temp_data;
+    allocateVecData(temp_data, vSize + 1);
+    copyVector(temp_data, vData, vSize);
+    temp_data[vSize] = item;
+    delete []vData;
+    allocateVecData(vData, vSize + 1);
+    copyVector(vData, temp_data, vSize + 1);
+    vSize++;
+}
+
+void Vector::resize(unsigned int size, bool keepData)
+{
+    int *temp_data;
+    allocateVecData(temp_data, size);
+
+    if(keepData) {
+        for(unsigned int index=0; index < (size < vSize) ? size : vSize; index++)
+            temp_data[index] = vData[index];
+    }
+
+    if(vData != nullptr)
+        delete [] vData;
+
+    vData = temp_data;
+    vSize = size;
+}
+
+void Vector::allocateVecData(int *&v_data, unsigned int size)
+{
+    try {
+        v_data = new int[size];
+    } catch(bad_alloc& ba) {
+        cout<<"Error : "<<ba.what()<<" : not able to allocate vector";
+    }
+}
+
+void Vector::cleanUpVector(int *&v_data, unsigned int size)
+{
+    delete []v_data;
+}
+
+void Vector::copyVector(int *&v_dest, int *src, unsigned int size)
+{
+    for(unsigned int index = 0; index < size; index++)
+        v_dest[index] = src[index];
+}
+
+void Vector::v_init(int value)
+{
+    for(unsigned int index = 0; index < vSize; index++)
+        vData[index] = value;
+}
+
+void Vector::print(ostream& out) const
+{
+    if(vSize != 0) {
+        for(unsigned int index = 0; index < vSize; index++)
+            out<<vData[index]<<" ";
+    }
+}
+
+void Vector::read(istream& in)
+{
+
+}
+
+bool Vector::operator== (const Vector &v){
+    for(int index=0; index < vSize; index++)
+        if(vData[index] != v[index]) return false;
+    return true;
+}
+
+bool Vector::operator!= (const Vector &v){
+    for(int index=0; index < vSize; index++)
+        if(vData[index] != v[index]) return true;
+    return false;
 }

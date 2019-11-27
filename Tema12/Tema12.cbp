@@ -47,6 +47,7 @@
 		<Unit filename="src/Graf_Orientat.cpp" />
 		<Unit filename="src/Lista.cpp" />
 		<Unit filename="src/Matrice.cpp" />
+		<Unit filename="src/Universal.cpp" />
 		<Unit filename="src/Vector.cpp" />
 		<Extensions>
 			<code_completion />
