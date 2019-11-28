@@ -34,12 +34,13 @@ Matrice::Matrice(const Matrice& other){
 
 Matrice& Matrice::operator=(const Matrice& rhs)
 {
-
     if (this == &rhs)
         return *this;
-    if(size != rhs.size) {
-        throw std::invalid_argument("Matrix does not have the same size");
-        return *this;
+    unsigned int rhs_size = rhs.getSize();
+    if(rhs_size != size) {
+        cleanUpMatrix(m_data, size);
+        rhs_size = size;
+        allocateMatrix(m_data, rhs_size);
     }
     matrixCopy(m_data, rhs.m_data, size);
     return *this;
@@ -84,4 +85,18 @@ void Matrice::matrixCopy(int **&dest, int **src, unsigned int m_size){
         for(index2 = 0; index2 < m_size; index2 ++)
             dest[index1][index2] = src[index1][index2];
     }
+}
+
+void Matrice::resize(unsigned int t_size, bool keepData){
+    int **temp_matrix;
+    allocateMatrix(temp_matrix, t_size);
+
+    if(keepData){
+        matrixCopy(temp_matrix, m_data, (t_size < size) ? size : t_size);
+    }
+
+    if(m_data != nullptr) delete []m_data;
+    allocateMatrix(m_data, t_size);
+    matrixCopy(m_data, temp_matrix, t_size);
+    size = t_size;
 }

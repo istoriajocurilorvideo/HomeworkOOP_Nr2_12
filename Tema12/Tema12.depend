@@ -90,3 +90,57 @@
 1574864056 source:g:\tutu\homeworkoop_nr2_12-master\tema12\src\universal.cpp
 	"Universal.h"
 
+1574903544 source:c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\main.cpp
+	"Matrice.h"
+	"Vector.h"
+	"Graf.h"
+	"Graf_Neorientat.h"
+	"Graf_Orientat.h"
+
+1574887373 c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\include\matrice.h
+	"Universal.h"
+
+1574886890 c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\include\universal.h
+	<iostream>
+	<bits/stdc++.h>
+	<cstring>
+	<utility>
+
+1574903496 c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\include\vector.h
+	"Universal.h"
+
+1574893561 c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\include\graf.h
+	"Universal.h"
+
+1574896724 c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\include\graf_neorientat.h
+	"Graf.h"
+	"Lista.h"
+
+1574898971 c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\include\lista.h
+	"Universal.h"
+	"Vector.h"
+
+1574892485 c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\include\graf_orientat.h
+	"Matrice.h"
+
+1574886890 source:c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\src\graf.cpp
+	"Graf.h"
+
+1574903646 source:c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\src\graf_neorientat.cpp
+	"Graf_Neorientat.h"
+
+1574892500 source:c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\src\graf_orientat.cpp
+	"Graf_Orientat.h"
+
+1574898970 source:c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\src\lista.cpp
+	"Lista.h"
+
+1574886890 source:c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\src\universal.cpp
+	"Universal.h"
+
+1574903584 source:c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\src\vector.cpp
+	"Vector.h"
+
+1574887494 source:c:\users\robofun.000\desktop\homeworkoop_nr2_12-master (1)\homeworkoop_nr2_12-master\tema12\src\matrice.cpp
+	"Matrice.h"
+

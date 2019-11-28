@@ -1,6 +1,6 @@
 #include "Graf_Orientat.h"
 
-Graf_Orientat::Graf_Orientat(Matrice m) : Graf(m.getSize())
+Graf_Orientat::Graf_Orientat(Matrice m)
 {
 
 }
@@ -10,7 +10,7 @@ Graf_Orientat::~Graf_Orientat()
     //dtor
 }
 
-Graf_Orientat::Graf_Orientat(const Graf_Orientat& other) : Graf(nrNodes)
+Graf_Orientat::Graf_Orientat(const Graf_Orientat& other)
 {
     //copy ctor
 }

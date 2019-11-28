@@ -14,7 +14,7 @@ class Matrice
         int& operator() (unsigned int row, unsigned int column);
         int operator() (unsigned int row, unsigned int column) const;
         unsigned int getSize() const { return size; }
-
+        void resize(unsigned int t_size, bool keepData=false);
 
     protected:
         void allocateMatrix(int **&m_alloc, unsigned int m_size);

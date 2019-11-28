@@ -3,30 +3,50 @@ unsigned int Lista::counter_help = 0;
 
 Lista::Lista() : head(nullptr), tail(nullptr) {}
 
-Lista::Lista(Vector *l) : head(nullptr), tail(nullptr)
-{
-
+Lista::Lista(Vector *l, unsigned int vl_dim) : head(nullptr), tail(nullptr) {
+    unsigned int index = 0;
+    for(index = 0; index < vl_dim; index++)
+        addNode(l[index]);
 }
 
-Lista::~Lista()
-{
-    //dtor
+Lista::~Lista() {
+    emptyList();
 }
 
-Lista::Lista(const Lista& other)
-{
-
+Lista::Lista(const Lista& other) {
+    emptyList();
+    Node *t_head = other.head;
+    while(t_head != nullptr) {
+        addNode(t_head->data);
+        t_head = t_head -> next;
+    }
 }
 
-Lista& Lista::operator=(const Lista& rhs)
-{
+Lista& Lista::operator=(const Lista& rhs) {
     if (this == &rhs)
         return *this;
+    emptyList();
+    Node *t_head = rhs.head;
+    while(t_head != nullptr) {
+        addNode(t_head->data);
+        t_head = t_head -> next;
+    }
     return *this;
 }
 
-void Lista::addNode(Vector item)
-{
+void Lista::emptyList() {
+    if(isListEmpty() == false) {
+        Node *cur;
+        while(head != nullptr) {
+            cur = head;
+            head = head->next;
+            delete cur;
+        }
+    } else
+        cout<<"List already empty"<<endl;
+}
+
+void Lista::addNode(Vector &item) {
     Node *tmp = new Node;
     tmp->data = item;
     tmp->next = NULL;
@@ -41,13 +61,21 @@ void Lista::addNode(Vector item)
 }
 
 
-Vector& Lista::operator[] (unsigned int index){
+Vector& Lista::operator[] (unsigned int index) {
     Node *cur = getElementByIndex(index);
-    if(cur == nullptr) throw out_of_range("Index out of bounds");
+    if(cur == nullptr)
+        throw out_of_range("Index out of bounds");
     return cur->data;
 }
 
-Node *Lista::getElementByIndex(unsigned int index) {
+Vector Lista::operator[] (unsigned int index) const {
+    Node *cur = getElementByIndex(index);
+    if(cur == nullptr)
+        throw out_of_range("Index out of bounds");
+    return cur->data;
+}
+
+Node *Lista::getElementByIndex(unsigned int index) const{
     unsigned long int _index = 0;
     Node *cur = head;
     while(cur->next != nullptr && _index != index) {
@@ -64,18 +92,6 @@ Node *Lista::getElementByIndex(unsigned int index) {
     }
 
     return cur;
-}
-
-unsigned int Lista::getElementByType(const Vector& elem) {
-    Node *temp = head;
-    unsigned long int index = 0;
-    while(temp != nullptr) {
-        if(temp->data == elem)
-            return index;
-        temp = temp->next;
-        index++;
-    }
-    return -1;
 }
 
 void Lista::deleteElementByIndex(unsigned int index) {
@@ -96,11 +112,11 @@ void Lista::print(ostream& out) const {
     }
 }
 
-void Lista::read(istream& in){
+void Lista::read(istream& in) {
 
 }
 
-unsigned int Lista::getSize() const{
+unsigned int Lista::getSize() const {
     Node *temp = head;
     counter_help = 0;
     while(temp != nullptr) {

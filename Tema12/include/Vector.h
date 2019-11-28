@@ -17,6 +17,9 @@ class Vector : public ArrayStream
         bool operator== (const Vector &v);
         bool operator!= (const Vector &v);
         void pushBack(const int& item);
+        void pop(unsigned int index);
+        void deleteItemByItem(const int &item);
+        void deleteItemByIndex(unsigned int ind);
         void resize(unsigned int size, bool keepData=false);
         unsigned int getSize() const { return vSize; }
         void v_init(int value);
@@ -27,7 +30,7 @@ class Vector : public ArrayStream
 
     private:
         unsigned int vSize;
-        int *vData;
+        int *vData = nullptr;
         void print(ostream& o) const;
         void read(istream& in);
 };

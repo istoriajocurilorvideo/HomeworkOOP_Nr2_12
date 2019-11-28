@@ -21,11 +21,13 @@ int main()
     cout<<endl;
     cout<<"Vector operations : ";
     Vector v2(7);
+    cout<<"am fost creat";
     int v[] = {1, 2, 5, 6, 7};
     int mr = 5;
     Vector v3(v, mr);
+    cout<<"SIeu";
     Vector v1(v3);
-
+    cout<<"aici la fel";
     for(int index=0; index < v1.getSize(); index++)
         cout<<v1[index]<<" ";
     cout<<endl;
@@ -38,8 +40,20 @@ int main()
         cout<<v1[index]<<" ";
     cout<<endl<<v1.getSize();
     cout<<endl;
-    cout<<v1;
-    Vector ll[3];
-    cout<<ll[0][1];
+    cout<<v1<<endl;
+    cout<<"Grafuri neorientate: " <<endl;
+    Graf_Neorientat graf(6);
+    cout<<graf;
+    graf.addEdge(1 , 3);
+    graf.addEdge(2 , 3);
+    graf.addEdge(4 , 5);
+    cout<<endl<<endl<<graf;
+    cout<<endl;
+    graf.deleteEdge(2, 3);
+    cout<<graf;
+    /*
+    v3.deleteItemByIndex(2);
+    v3.deleteItemByItem(6);
+    cout<<v3;*/
     return 0;
 }

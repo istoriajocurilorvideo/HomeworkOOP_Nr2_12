@@ -1,10 +1,10 @@
 #ifndef GRAF_ORIENTAT_H
 #define GRAF_ORIENTAT_H
 
-#include "Graf.h"
+//#include "Graf.h"
 #include "Matrice.h"
 
-class Graf_Orientat : public Graf
+class Graf_Orientat //: public Graf
 {
     public:
         Graf_Orientat(Matrice m);

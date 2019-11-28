@@ -15,15 +15,17 @@ class Lista : public ArrayStream
 public:
     Lista();
     //Lista(unsigned int dim);
-    Lista(Vector *l);
+    Lista(Vector *l, unsigned int vl_dim);
     virtual ~Lista();
     Lista(const Lista& other);
     Lista& operator=(const Lista& other);
-    void addNode(Vector item);
+    void addNode(Vector &item);
     Vector &operator[] (unsigned int index);
-    Node *getElementByIndex(unsigned int index);
-    unsigned int getElementByType(const Vector& elem);
+    Vector operator[] (unsigned int index) const;
+    Node *getElementByIndex(unsigned int index) const;
     void deleteElementByIndex(unsigned int index);
+    bool isListEmpty() const { return head == nullptr && tail == nullptr; }
+    void emptyList();
     unsigned int getSize() const;
 protected:
 
